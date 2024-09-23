@@ -7,7 +7,14 @@ import { TodoItem } from "./types/todo";
 export default function App() {
   const [todo, setTodo] = useState<TodoItem[]>(() => {
     const savedData = localStorage.getItem("todo");
-    return savedData ? JSON.parse(savedData) : [];
+    let initialData = [];
+    try {
+      initialData = savedData ? JSON.parse(savedData) : [];
+    } catch (e) {
+      console.error("Failed to parse todo data", e);
+      initialData = [];
+    }
+    return initialData;
   });
   const [filter, setFilter] = useState<"done" | "yet" | null>(null);
 
