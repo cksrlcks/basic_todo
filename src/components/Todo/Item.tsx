@@ -23,7 +23,7 @@ function Item({ todo, onRemove, onToggle }: ItemProps) {
         <input
           type="checkbox"
           className={style["todo-item__checkbox"]}
-          defaultChecked={todo.isCompleted}
+          checked={todo.isCompleted}
           onChange={handleChange}
         />
         <div className={style["todo-item__label"]}>{todo.title}</div>
