@@ -4,6 +4,25 @@ import Header from "./components/Header";
 import Todo from "./components/Todo";
 import { TodoItem } from "./types/todo";
 
+const filterTodo = ({
+  todo,
+  filter,
+}: {
+  todo: TodoItem[];
+  filter: "done" | "yet" | null;
+}) => {
+  let filteredTodo;
+  if (filter === "done") {
+    filteredTodo = todo.filter((item) => item.isCompleted === true);
+  } else if (filter === "yet") {
+    filteredTodo = todo.filter((item) => item.isCompleted === false);
+  } else {
+    filteredTodo = todo;
+  }
+
+  return filteredTodo;
+};
+
 export default function App() {
   const [todo, setTodo] = useState<TodoItem[]>(() => {
     const savedData = localStorage.getItem("todo");
@@ -47,25 +66,6 @@ export default function App() {
 
   const handleFilter = (filter: "done" | "yet" | null) => {
     setFilter(filter);
-  };
-
-  const filterTodo = ({
-    todo,
-    filter,
-  }: {
-    todo: TodoItem[];
-    filter: "done" | "yet" | null;
-  }) => {
-    let filteredTodo;
-    if (filter === "done") {
-      filteredTodo = todo.filter((item) => item.isCompleted === true);
-    } else if (filter === "yet") {
-      filteredTodo = todo.filter((item) => item.isCompleted === false);
-    } else {
-      filteredTodo = todo;
-    }
-
-    return filteredTodo;
   };
 
   return (
