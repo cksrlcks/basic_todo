@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { TodoItem } from "../../types/todo";
 import style from "./style.module.css";
 
@@ -7,7 +8,7 @@ interface ItemProps {
   onToggle: (id: string) => void;
 }
 
-export default function Item({ todo, onRemove, onToggle }: ItemProps) {
+function Item({ todo, onRemove, onToggle }: ItemProps) {
   const handleRemove = () => {
     onRemove(todo.id);
   };
@@ -37,3 +38,5 @@ export default function Item({ todo, onRemove, onToggle }: ItemProps) {
     </li>
   );
 }
+
+export default memo(Item);

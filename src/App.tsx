@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import Todo from "./components/Todo";
@@ -41,18 +41,18 @@ export default function App() {
     localStorage.setItem("todo", JSON.stringify(todo));
   }, [todo]);
 
-  const addTodo = (title: string) => {
+  const addTodo = useCallback((title: string) => {
     setTodo((prev) => [
       ...prev,
       { id: new Date().getTime().toString(), title, isCompleted: false },
     ]);
-  };
+  }, []);
 
-  const removeTodo = (id: string) => {
+  const removeTodo = useCallback((id: string) => {
     setTodo((prev) => prev.filter((item) => item.id !== id));
-  };
+  }, []);
 
-  const toggleTodo = (id: string) => {
+  const toggleTodo = useCallback((id: string) => {
     setTodo((prev) =>
       prev.map((item) => {
         return item.id === id
@@ -60,7 +60,7 @@ export default function App() {
           : item;
       })
     );
-  };
+  }, []);
 
   const handleFilter = (filter: "done" | "yet" | null) => {
     setFilter(filter);
