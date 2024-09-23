@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import style from "./style.module.css";
 
 interface Form {
   onAdd: (title: string) => void;
@@ -28,6 +29,7 @@ export default function Form({ onAdd }: Form) {
     }
     setInput(e.target.value);
   };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isValid = validation();
@@ -37,21 +39,22 @@ export default function Form({ onAdd }: Form) {
     setInput("");
     setErrorMsg(null);
   };
+
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <div className="input-field">
+    <form className={style.form} onSubmit={handleSubmit}>
+      <div className={style["input-field"]}>
         <input
           type="text"
-          className="input-field__input"
+          className={style["input-field__input"]}
           placeholder="할일을 적어주세요"
           value={input}
           onChange={handleChange}
         />
-        <button type="submit" className="input-field__button">
+        <button type="submit" className={style["input-field__button"]}>
           작성
         </button>
       </div>
-      {errorMsg && <div className="form__msg">{errorMsg}</div>}
+      {errorMsg && <div className={style.form__msg}>{errorMsg}</div>}
     </form>
   );
 }

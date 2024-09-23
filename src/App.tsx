@@ -3,7 +3,6 @@ import Form from "./components/Form";
 import Header from "./components/Header";
 import Todo from "./components/Todo";
 import { TodoItem } from "./types/todo";
-import "./styles/temp.css";
 
 const filterTodo = ({
   todo,

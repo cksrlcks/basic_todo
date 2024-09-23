@@ -1,8 +1,29 @@
-@charset "utf-8";
-
 body {
+  background: #fefefe;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue,
     Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, 나눔고딕, Nanum Gothic,
     Noto Sans KR, Noto Sans CJK KR, arial, 돋움, Dotum, Tahoma, Geneva,
     sans-serif;
+}
+#root {
+  padding: 20px;
+}
+.app {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 0;
+  }
+
+  .app {
+    box-shadow: none;
+    border-radius: none;
+  }
 }

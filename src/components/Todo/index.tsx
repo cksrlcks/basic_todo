@@ -1,5 +1,6 @@
 import { TodoItem } from "../../types/todo";
 import Item from "./Item";
+import style from "./style.module.css";
 
 interface Todo {
   todo: TodoItem[];
@@ -9,7 +10,7 @@ interface Todo {
 
 export default function Todo({ todo, onRemove, onToggle }: Todo) {
   return (
-    <ul className="todo-list">
+    <ul className={style["todo-list"]}>
       {todo.map((item) => (
         <Item
           key={item.id}

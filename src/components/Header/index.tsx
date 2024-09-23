@@ -1,3 +1,5 @@
+import style from "./style.module.css";
+
 interface Header {
   filter: "done" | "yet" | null;
   onFilter: (filter: "done" | "yet" | null) => void;
@@ -5,14 +7,14 @@ interface Header {
 
 export default function Header({ filter, onFilter }: Header) {
   return (
-    <header className="header">
-      <h1 className="header__title">Todo List</h1>
-      <nav className="header__nav">
+    <header className={style.header}>
+      <h1 className={style.header__title}>Todo List</h1>
+      <nav className={style.header__nav}>
         <ul>
           <li>
             <button
-              className={`header__button ${
-                filter === null ? "header__button--active" : ""
+              className={`${style.header__button} ${
+                filter === null ? style["header__button--active"] : ""
               }`}
               onClick={() => onFilter(null)}
             >
@@ -21,8 +23,8 @@ export default function Header({ filter, onFilter }: Header) {
           </li>
           <li>
             <button
-              className={`header__button ${
-                filter === "yet" ? "header__button--active" : ""
+              className={`${style.header__button} ${
+                filter === "yet" ? style["header__button--active"] : ""
               }`}
               onClick={() => onFilter("yet")}
             >
@@ -31,8 +33,8 @@ export default function Header({ filter, onFilter }: Header) {
           </li>
           <li>
             <button
-              className={`header__button ${
-                filter === "done" ? "header__button--active" : ""
+              className={`${style.header__button} ${
+                filter === "done" ? style["header__button--active"] : ""
               }`}
               onClick={() => onFilter("done")}
             >

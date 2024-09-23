@@ -1,4 +1,5 @@
 import { TodoItem } from "../../types/todo";
+import style from "./style.module.css";
 
 interface Item {
   todo: TodoItem;
@@ -17,17 +18,17 @@ export default function Item({ todo, onRemove, onToggle }: Item) {
 
   return (
     <li>
-      <div className="todo-item">
+      <div className={style["todo-item"]}>
         <input
           type="checkbox"
-          className="todo-item__checkbox"
+          className={style["todo-item__checkbox"]}
           defaultChecked={todo.isCompleted}
           onChange={handleChange}
         />
-        <div className="todo-item__label">{todo.title}</div>
+        <div className={style["todo-item__label"]}>{todo.title}</div>
         <button
           type="button"
-          className="todo-item__button"
+          className={style["todo-item__button"]}
           onClick={handleRemove}
         >
           <img src="/icon/delete.svg" alt="삭제" />
