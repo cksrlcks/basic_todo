@@ -55,11 +55,9 @@ export default function App() {
   const toggleTodo = (id: string) => {
     setTodo((prev) =>
       prev.map((item) => {
-        if (item.id === id) {
-          return { ...item, isCompleted: !item.isCompleted };
-        } else {
-          return item;
-        }
+        return item.id === id
+          ? { ...item, isCompleted: !item.isCompleted }
+          : item;
       })
     );
   };
