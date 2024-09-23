@@ -1,11 +1,11 @@
 import style from "./style.module.css";
 
-interface Header {
+interface HeaderProps {
   filter: "done" | "yet" | null;
   onFilter: (filter: "done" | "yet" | null) => void;
 }
 
-export default function Header({ filter, onFilter }: Header) {
+export default function Header({ filter, onFilter }: HeaderProps) {
   return (
     <header className={style.header}>
       <h1 className={style.header__title}>Todo List</h1>

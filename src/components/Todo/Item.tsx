@@ -1,13 +1,13 @@
 import { TodoItem } from "../../types/todo";
 import style from "./style.module.css";
 
-interface Item {
+interface ItemProps {
   todo: TodoItem;
   onRemove: (id: string) => void;
   onToggle: (id: string) => void;
 }
 
-export default function Item({ todo, onRemove, onToggle }: Item) {
+export default function Item({ todo, onRemove, onToggle }: ItemProps) {
   const handleRemove = () => {
     onRemove(todo.id);
   };

@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import style from "./style.module.css";
 
-interface Form {
+interface FormProps {
   onAdd: (title: string) => void;
 }
 
-export default function Form({ onAdd }: Form) {
+export default function Form({ onAdd }: FormProps) {
   const [input, setInput] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
